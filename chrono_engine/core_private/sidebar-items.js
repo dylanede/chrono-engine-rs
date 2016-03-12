@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Shared","A shared pointer to a Chrono Engine type. This type is not `Send` or `Sync`."]],"trait":[["Shareable","This is implemented for Chrono Engine types that can be put into a shared pointer (specifically a C++ `std::shared_ptr`). You cannot implement this yourself."]]});
