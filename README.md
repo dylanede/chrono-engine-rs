@@ -14,6 +14,8 @@ Visual C++ should be fine. Building with CMake is handled with the
 [cmake](https://github.com/alexcrichton/cmake-rs) crate, so cross-compilation
 should work out of the box.
 
+## [Documentation](https://dylanede.github.io/chrono-engine-rs)
+
 ## Hacking on chrono-engine-rs
 
 Please make sure that you have checked out the chrono submodule in this
