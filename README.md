@@ -1,4 +1,6 @@
 # chrono-engine-rs
+[![Build Status](https://travis-ci.org/dylanede/chrono-engine-rs.svg?branch=master)](https://travis-ci.org/dylanede/chrono-engine-rs)
+
 Rust bindings for Chrono Engine, an open source physics engine. See https://github.com/projectchrono/chrono
 
 *This is a WIP - there is no released version yet.*
