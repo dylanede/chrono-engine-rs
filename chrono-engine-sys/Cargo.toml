@@ -7,6 +7,8 @@ Crate for building and linking against Chrono Engine (https://github.com/project
 
 Since Chrono Engine is a C++ library, this crate does not provide any C ABI function bindings (since there are none). Wrapping the C++ API in C ABI functions and binding them is handled by higher level crates, such as chrono-engine.
 """
+homepage = "https://github.com/dylanede/chrono-engine-rs"
+repository = "https://github.com/dylanede/chrono-engine-rs"
 license = "MIT / Apache-2.0"
 keywords = ["physics", "engine", "SCP", "SOCCOP", "sys"]
 links = "ChronoEngine"
