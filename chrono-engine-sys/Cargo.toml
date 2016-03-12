@@ -1,0 +1,29 @@
+[package]
+name = "chrono-engine-sys"
+version = "0.1.0"
+authors = ["Dylan Ede <dylanede@googlemail.com>"]
+description = """
+Crate for building and linking against Chrono Engine (https://github.com/projectchrono/chrono/). Requires CMake to build.
+
+Since Chrono Engine is a C++ library, this crate does not provide any C ABI function bindings (since there are none). Wrapping the C++ API in C ABI functions and binding them is handled by higher level crates, such as chrono-engine.
+"""
+license = "MIT / Apache-2.0"
+keywords = ["physics", "engine", "SCP", "SOCCOP", "sys"]
+links = "ChronoEngine"
+build = "build.rs"
+
+[build-dependencies]
+cmake = "0.1.16"
+
+[features]
+cascade = []
+cosimulation = []
+fea = []
+irrlicht = []
+matlab = []
+mkl = []
+opengl = []
+parallel = []
+postprocess = []
+python = []
+vehicle = []

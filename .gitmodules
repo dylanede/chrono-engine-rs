@@ -1,0 +1,3 @@
+[submodule "chrono"]
+	path = chrono-engine-sys/chrono
+	url = https://github.com/projectchrono/chrono.git
