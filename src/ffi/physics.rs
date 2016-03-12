@@ -2,7 +2,7 @@ use libc;
 
 use ::physics::System;
 use ::physics::Body;
-use ::core::SharedData;
+use ::core_private::SharedData;
 use ::ffi::core::InternalPointer;
 
 extern {

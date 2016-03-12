@@ -6,9 +6,13 @@ pub struct SharedData<T: Shareable> {
     marker: PhantomData<*const T>
 }
 
+/// A shared pointer to a Chrono Engine type. This type is not `Send` or `Sync`.
+///
+/// Internally this is a C++ `std::shared_ptr`.
 pub struct Shared<T: Shareable> {
     data: SharedData<T>
 }
+
 impl<T: Shareable> Clone for Shared<T> {
     fn clone(&self) -> Shared<T> {
         Shared {
@@ -16,17 +20,26 @@ impl<T: Shareable> Clone for Shared<T> {
         }
     }
 }
+
 impl<T: Shareable> Drop for Shared<T> {
     fn drop(&mut self) {
         T::drop_shared(&mut self.data)
     }
 }
+
+/// This is implemented for Chrono Engine types that can be put into a shared pointer
+/// (specifically a C++ `std::shared_ptr`). You cannot implement this yourself.
 pub trait Shareable: Sized {
+    #[doc(hidden)]
     fn into_shared(self: Self) -> Shared<Self>;
+    #[doc(hidden)]
     fn clone_shared(ptr_data: &SharedData<Self>) -> SharedData<Self>;
+    #[doc(hidden)]
     fn drop_shared(ptr_data: &mut SharedData<Self>);
+    #[doc(hidden)]
     fn deref_shared(ptr_data: &SharedData<Self>) -> &Self;
 }
+
 impl<T: Shareable> ::std::ops::Deref for Shared<T> {
     type Target = T;
     fn deref(&self) -> &T {

@@ -1,5 +1,5 @@
 use ::ffi;
-use ::core::{Shared, SharedData, Shareable, AccessSharedData};
+use ::core_private::{Shared, SharedData, Shareable, AccessSharedData};
 pub struct Body {
     ptr: ffi::core::InternalPointer<Body>
 }
@@ -9,6 +9,7 @@ impl Drop for Body {
     }
 }
 impl Shareable for Body {
+    #[doc(hidden)]
     fn into_shared(self) -> Shared<Body> {
         let result = Shared::<Body>::from_data(unsafe {
             ffi::physics::body_into_shared(self.ptr)
@@ -16,12 +17,15 @@ impl Shareable for Body {
         ::std::mem::forget(self);
         result
     }
+    #[doc(hidden)]
     fn clone_shared(ptr_data: &SharedData<Body>) -> SharedData<Body> {
         unsafe { ffi::physics::shared_body_clone(ptr_data as *const _) }
     }
+    #[doc(hidden)]
     fn drop_shared(ptr_data: &mut SharedData<Body>) {
         unsafe { ffi::physics::drop_shared_body(ptr_data as *mut _) }
     }
+    #[doc(hidden)]
     fn deref_shared(ptr_data: &SharedData<Body>) -> &Body {
         unsafe {
             // This relies on the check_shared_body_layout test passing

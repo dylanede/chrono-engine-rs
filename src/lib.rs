@@ -5,4 +5,12 @@ extern crate chrono_engine_sys;
 
 mod ffi;
 pub mod physics;
-pub mod core;
+#[path = "core/mod.rs"]
+mod core_private;
+
+pub mod core {
+    pub use core_private::{
+        Shared,
+        Shareable
+    };
+}
