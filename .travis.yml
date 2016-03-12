@@ -10,7 +10,5 @@ after_success: |
   cargo doc --no-deps &&
   echo "<meta http-equiv=refresh content=0;url=`echo stb_truetype | cut -d '/' -f 2`/index.html>" > target/doc/index.html &&
   git clone https://github.com/davisp/ghp-import &&
-  ls -l . &&
-  ls -l ./ghp-import &&
-  python ./ghp-import/ghp-import.py target/doc &&
+  ./ghp-import/ghp_import.py target/doc &&
   git push -fq https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git gh-pages
