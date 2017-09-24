@@ -161,7 +161,6 @@ static CHRONO_CLASS_NAMES: &[&'static str] = &[
     "ChArchiveOut",
     "ChArchiveOutBinary",
     "ChArchiveOutJSON",
-    "ChAssembly",
     "ChAssemblyAnalysis",
     "ChAsset",
     "ChAssetLevel",
