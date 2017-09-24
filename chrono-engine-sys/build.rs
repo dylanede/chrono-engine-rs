@@ -104,6 +104,7 @@ class MyUniquePtr {
         .opaque_type("std::.*string.*")
         .opaque_type("std::_String.*")
         .opaque_type("std::.*stream.*")
+        .whitelisted_type("std::shared_ptr")
         .hide_type("std::vector.*");
 
     for &class_name in CHRONO_CLASS_NAMES {

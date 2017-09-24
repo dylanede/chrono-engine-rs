@@ -14,5 +14,13 @@ fn main() {
     }
     let include_dir = PathBuf::from(env::var("DEP_CHRONOENGINE_INCLUDE_DIR").unwrap());
 
-    cpp_build::Config::new().include(&include_dir).build("src/lib.rs");
+    let target = env::var("TARGET").unwrap();
+    let msvc = target.contains("msvc");
+
+    let mut config = cpp_build::Config::new();
+    config.include(&include_dir);
+    if !msvc {
+        config.flag("-std=c++14");
+    }
+    config.build("src/lib.rs");
 }
