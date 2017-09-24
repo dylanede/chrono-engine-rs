@@ -15,12 +15,14 @@ links = "ChronoEngine"
 build = "build.rs"
 
 [build-dependencies]
-cmake = "0.1.16"
+cmake = "^0.1.25"
+bindgen = "^0.30.0"
 
 [features]
 cascade = []
 cosimulation = []
 fea = []
+fsi = []
 irrlicht = []
 matlab = []
 mkl = []
